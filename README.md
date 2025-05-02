@@ -41,11 +41,11 @@ Esta é uma API RESTful desenvolvida em Java com Spring Boot para gerenciar tran
 ```json
 {
   "title": "Compra no mercado",
+  "amount": 1200.00,
   "description": "Compra de mantimentos no supermercado",
-  "date": "2025-05-02",
-  "amount": 250.75,
-  "type": "EXPENSE",
-  "category": "Alimentação"
+  "date": "25/05/2025",
+  "category": "Alimentação",
+  "type": "EXPENSE"
 }
 ```
 
@@ -56,9 +56,9 @@ Esta é uma API RESTful desenvolvida em Java com Spring Boot para gerenciar tran
   "id": "e7c23e7a-46b4-4dc2-8b6e-df6ec8b1f002",
   "title": "Compra no mercado",
   "amount": 1200.00,
-  "description": "Aluguel",
+  "description": "Compra de mantimentos no supermercado",
   "date": "25/05/2025",
-  "category": "Alimentação"
+  "category": "Alimentação",
   "type": "EXPENSE"
 }
 ```
@@ -102,7 +102,7 @@ Esta é uma API RESTful desenvolvida em Java com Spring Boot para gerenciar tran
 {
   "id": "c5638c41-3a2c-4e57-91dd-5ce5baa1dad1",
   "title": "Compra no mercado",
-  "amount": 250.75,
+  "amount": 1200.00,
   "description": "Compra de mantimentos no supermercado",
   "date": "25/05/2025",
   "category": "Alimentação",
@@ -149,7 +149,6 @@ Esta é uma API RESTful desenvolvida em Java com Spring Boot para gerenciar tran
 {
   "title": "Compra no mercado",
   "description": "Compra de mantimentos no supermercado do Tio Sam",
-  "date": "25/05/2025",
   "amount": 300.75,
   "type": "EXPENSE",
   "category": "Alimentação"
