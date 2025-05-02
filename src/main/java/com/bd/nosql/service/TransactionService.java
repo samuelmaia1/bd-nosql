@@ -1,6 +1,7 @@
 package com.bd.nosql.service;
 
 import com.bd.nosql.dto.TransactionDto;
+import com.bd.nosql.dto.TransactionRequestPutDto;
 import com.bd.nosql.dto.TransactionResponseDto;
 import com.bd.nosql.model.Transaction;
 import com.bd.nosql.repository.TransactionRepository;
@@ -40,5 +41,23 @@ public class TransactionService {
                 .findOrderByAmount(sortDirection)
                 .stream()
                 .map(transaction -> transaction.toDto()).toList();
+    }
+
+    public TransactionResponseDto putTransactionById(UUID id, TransactionRequestPutDto data){
+        Optional<Transaction> transaction = repository.findById(id);
+        if(transaction.isEmpty()){
+            throw new RuntimeException("Transação não encontrada!");
+        }
+        transaction.get().updateTransaction(data);
+        repository.save(transaction.get());
+
+        return transaction.get().toDto();
+    }
+
+    public void deleteTransaction(UUID id) {
+        if (!repository.existsById(id)) {
+            throw new RuntimeException("Transação não encontrada!");
+        }
+        repository.deleteById(id);
     }
 }
