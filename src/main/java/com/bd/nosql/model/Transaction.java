@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Document(collation = "transactions")
+@Document(collection = "transactions")
 public class Transaction {
     @Id
     private UUID id = UUID.randomUUID();
@@ -24,6 +24,8 @@ public class Transaction {
     private String type;
 
     private String category;
+
+    public Transaction (){}
 
     public Transaction(TransactionDto dto) {
         this.amount = dto.amount();
