@@ -1,6 +1,7 @@
 package com.bd.nosql.model;
 
 import com.bd.nosql.dto.TransactionDto;
+import com.bd.nosql.dto.TransactionRequestPutDto;
 import com.bd.nosql.dto.TransactionResponseDto;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Document(collation = "transactions")
+@Document(collection = "transactions")
 public class Transaction {
     @Id
     private UUID id = UUID.randomUUID();
@@ -24,6 +25,8 @@ public class Transaction {
     private String type;
 
     private String category;
+
+    public Transaction (){}
 
     public Transaction(TransactionDto dto) {
         this.amount = dto.amount();
@@ -68,6 +71,19 @@ public class Transaction {
                 this.category,
                 this.type
         );
+    }
+
+    public void updateTransaction(TransactionRequestPutDto data){
+        if(data.title() != null)
+            title = data.title();
+        if(data.amount() != null)
+            amount = data.amount();
+        if(data.description() != null)
+            description = data.description();
+        if(data.category() != null)
+            category = data.category();
+        if(data.type() != null)
+            type = data.type();
     }
 }
 
