@@ -24,7 +24,7 @@ public class TransactionService {
         return repository
                 .findAll()
                 .stream()
-                .map(transaction -> transaction.toDto())
+                .map(Transaction::toDto)
                 .toList();
     }
 
@@ -39,6 +39,6 @@ public class TransactionService {
         return repository
                 .findOrderByAmount(sortDirection)
                 .stream()
-                .map(transaction -> transaction.toDto()).toList();
+                .map(Transaction::toDto).toList();
     }
 }
